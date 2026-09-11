@@ -15,11 +15,23 @@ export function RegisterForm({ error }: RegisterFormProps) {
       <form hx-post="/register" hx-target="#register-card" hx-swap="outerHTML">
         <label>
           Name
-          <input type="text" name="name" required autocomplete="name" placeholder="Ada Lovelace" />
+          <input
+            type="text"
+            name="name"
+            required
+            autocomplete="name"
+            placeholder="Ada Lovelace"
+          />
         </label>
         <label>
           Email
-          <input type="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+          <input
+            type="email"
+            name="email"
+            required
+            autocomplete="email"
+            placeholder="you@example.com"
+          />
         </label>
         <label>
           Password

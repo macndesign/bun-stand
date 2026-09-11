@@ -8,8 +8,7 @@ RUN bun install --frozen-lockfile --ignore-scripts
 COPY tsconfig.json ./
 COPY src ./src
 
-RUN mkdir -p /data && \
-    bun build src/index.tsx --compile --outfile app --target bun
+RUN mkdir -p /data && bun run compile
 
 FROM gcr.io/distroless/cc-debian12:nonroot AS runtime
 

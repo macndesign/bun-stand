@@ -18,11 +18,23 @@ export function LoginForm({ error }: LoginFormProps) {
       <form hx-post="/login" hx-target="#login-card" hx-swap="outerHTML">
         <label>
           Email
-          <input type="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+          <input
+            type="email"
+            name="email"
+            required
+            autocomplete="email"
+            placeholder="you@example.com"
+          />
         </label>
         <label>
           Password
-          <input type="password" name="password" required autocomplete="current-password" placeholder="••••••••" />
+          <input
+            type="password"
+            name="password"
+            required
+            autocomplete="current-password"
+            placeholder="••••••••"
+          />
         </label>
         <button type="submit">Sign in</button>
       </form>

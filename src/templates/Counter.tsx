@@ -11,7 +11,11 @@ export function Counter({ count }: CounterProps) {
     <div id="counter-card" class="counter-card">
       <div class="counter-value">{count}</div>
       <div class="counter-actions">
-        <button hx-post="/counter/increment" hx-target="#counter-card" hx-swap="outerHTML">
+        <button
+          hx-post="/counter/increment"
+          hx-target="#counter-card"
+          hx-swap="outerHTML"
+        >
           + Increment
         </button>
         <button

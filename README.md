@@ -34,6 +34,20 @@ If host port 3000 is busy, pick another:
 APP_PORT=3100 docker compose up --build
 ```
 
+### Development mode (live reload inside Docker)
+
+An override file (`docker-compose.dev.yml`) swaps the compiled `app` for a `bun run --watch` dev server bound to your source, so edits reload the app in real time while it uses the **same database volume** as the compiled deployment.
+
+```sh
+docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+```
+
+Notes:
+
+- Host port and `BETTER_AUTH_URL` must agree. If port 3000 is taken, e.g. `APP_PORT=3100 BETTER_AUTH_URL=http://localhost:3100 docker compose -f docker-compose.yml -f docker-compose.dev.yml up`.
+- The `docker-compose.dev.yml` override disables building the compiled image with `build: !reset null`; do not pass `--build` (it would rebuild the prod Dockerfile and re-tag it as `oven/bun:1`, which the `migrate` service relies on).
+- Run dev **or** the compiled deploy, not both at once — they share one SQLite file.
+
 Runtime configuration:
 
 | Variable            | Default                       | Purpose                                  |
