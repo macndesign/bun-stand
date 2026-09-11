@@ -1,0 +1,16 @@
+.git
+.gitignore
+.env
+.env.example
+node_modules/
+app
+sqlite.db
+sqlite.db-shm
+sqlite.db-wal
+.DS_Store
+drizzle.config.ts
+drizzle/
+openspec/
+.github/
+.opencode/
+README.md
